@@ -1,0 +1,54 @@
+<html>
+	<head>
+	<title>Anagram Checker App by Ganesh Suryawanshi</title>
+	<style>
+		*{font-size:40px;}
+		body{background-color:orange;}
+	</style>
+	</head>
+	<body>
+	<center>	
+		<form onsubmit="acheck()">
+			<h1>Anagram Checker</h1>
+			</br>
+			<input type="text" id="str1" placeholder="Enter First String"/>
+			</br></br>
+			<input type="text" id="str2" placeholder="Enter  second String"/>
+			</br></br>
+			<input type="submit" value="Check"/>
+			
+		</form>
+		<h2 id="msg"></h2>
+		<script>
+			function acheck(){
+				event.preventDefault();
+				let str1= document.getElementById("str1");
+				let str2= document.getElementById("str2");
+				let msg= document.getElementById("msg");
+				
+				if(str1.value==""){
+					alert("First String is empty");
+					msg.innerHTML="";
+					str1.focus();
+					return;
+				}
+				if(str2.value==""){
+					alert(" Second String is empty");
+					msg.innerHTML="";
+					str2.focus();
+					return;
+				}
+				
+				org_str1=str1.value.toLowerCase();
+				org_str2=str2.value.toLowerCase();
+				sort_str1=org_str1.split("").sort().join("");
+				sort_str2=org_str2.split("").sort().join("");
+				if(sort_str1===sort_str2)
+					msg.innerHTML=org_str1+org_str2+" are Anagram";
+				else
+					msg.innerHTML=org_str1+org_str2+" are not Anagram";
+			}
+		</script>
+	</center>	
+	</body>
+</html>
